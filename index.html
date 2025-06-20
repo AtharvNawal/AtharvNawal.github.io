@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parimal Kulkarni | Data Scientist & ML Engineer</title>
+    <title>Atharv Nawal | Data Scientist & ML Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
@@ -34,34 +34,6 @@
             color: var(--text);
             overflow-x: hidden;
             line-height: 1.6;
-        }
-
-        /* Background GIF with Overlay */
-        .bg-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .bg-gif {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.15;
-        }
-
-        .bg-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(13, 17, 23, 0.97) 0%, rgba(24, 24, 54, 0.97) 100%);
         }
 
         /* Container */
@@ -196,6 +168,61 @@
         .hero-buttons {
             display: flex;
             gap: 20px;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .profile-pic-container {
+            flex: 0 0 300px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-pic {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--accent);
+            box-shadow: 0 0 30px rgba(77, 91, 249, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-pic-container {
+                margin-bottom: 30px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .profile-pic {
+                width: 250px;
+                height: 250px;
+            }
         }
 
         .btn {
@@ -919,22 +946,16 @@
     <div class="cursor"></div>
     <div class="cursor-dot"></div>
 
-    <!-- Background GIF Container -->
-    <div class="bg-container">
-        <div class="bg-overlay"></div>
-        <img src="https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif" alt="Background Animation" class="bg-gif">
-    </div>
-
     <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="#" class="logo">Parimal<span>Kulkarni</span></a>
+            <a href="#" class="logo">Atharv<span>Nawal</span></a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#hackathons">Hackathons</a></li>
+                <!-- <li><a href="#hackathons">Hackathons</a></li> -->
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -949,24 +970,33 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content fade-in">
-                <h2>Hello, I'm</h2>
-                <h1>Parimal Kulkarni</h1>
-                <h2>Data Scientist & ML Engineer</h2>
-                <p>Passionate about leveraging AI and ML technologies to solve complex problems. Specializing in Generative AI, RAG systems, and ML/DL applications.</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            <div class="hero-container">
+                <!-- Profile Picture on the Left -->
+                <div class="profile-pic-container fade-in">
+                    <img src="image.png" alt="Atharv Nawal" class="profile-pic">
                 </div>
-                <div class="social-links">
-                    <a href="https://github.com/parimal1009" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/parimal-kulkarni-343877282/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="mailto:parimal.kulkarni.btech2022@sitpune.edu.in" target="_blank"><i class="fas fa-envelope"></i></a>
-                    <a href="tel:+918087768244" target="_blank"><i class="fas fa-phone"></i></a>
+                
+                <!-- Content on the Right -->
+                <div class="hero-content fade-in">
+                    <h2>Hello, I'm</h2>
+                    <h1>Atharv Nawal</h1>
+                    <h2>CSE VIT'27</h2>
+                    <p>Intern @Interpay | Java | Web Developer | Flutter | MongoDB | SQL | Sponsorship coordinator @EPEC</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/AtharvNawal" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/atharvnawal/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:nawalatharv@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:+91 7820909186" target="_blank"><i class="fas fa-phone"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    
 
     <!-- About/Skills Section -->
     <section id="about" class="about">
@@ -978,13 +1008,30 @@
                 <div class="skill-category fade-in">
                     <h3><i class="fas fa-code"></i> Programming</h3>
                     <ul class="skill-list">
+                        <li><i class="fas fa-check-circle"></i> Java</li>
+                        <li><i class="fas fa-check-circle"></i> R</li>
                         <li><i class="fas fa-check-circle"></i> Python</li>
-                        <li><i class="fas fa-check-circle"></i> C/C++</li>
+                        <li><i class="fas fa-check-circle"></i> JavaScript</li>
+                        <li><i class="fas fa-check-circle"></i> HTML</li>
+                        <li><i class="fas fa-check-circle"></i> CSS</li>
                         <li><i class="fas fa-check-circle"></i> SQL</li>
-                        <li><i class="fas fa-check-circle"></i> MATLAB</li>
+                        <li><i class="fas fa-check-circle"></i> MongoDB</li>
                     </ul>
                 </div>
                 
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-tools"></i> Frameworks & Libraries</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check-circle"></i> React</li>
+                        <li><i class="fas fa-check-circle"></i> Flask</li>
+                        <li><i class="fas fa-check-circle"></i> Node.js</li>
+                        <li><i class="fas fa-check-circle"></i> Git</li>
+                        <li><i class="fas fa-check-circle"></i> NumPy</li>
+                        <li><i class="fas fa-check-circle"></i> Hugging Face Transformers</li>
+                        <li><i class="fas fa-check-circle"></i> PyTorch</li>
+                    </ul>
+                </div>
+
                 <div class="skill-category fade-in">
                     <h3><i class="fas fa-chart-line"></i> Data Science & ML</h3>
                     <ul class="skill-list">
@@ -996,16 +1043,14 @@
                         <li><i class="fas fa-check-circle"></i> scikit-learn</li>
                     </ul>
                 </div>
-                
+
                 <div class="skill-category fade-in">
-                    <h3><i class="fas fa-brain"></i> Deep Learning & NLP</h3>
+                    <h3><i class="fas fa-lightbulb"></i> Concepts</h3>
                     <ul class="skill-list">
-                        <li><i class="fas fa-check-circle"></i> Transformers, RNNs, LSTMs, CNNs</li>
-                        <li><i class="fas fa-check-circle"></i> TensorFlow</li>
-                        <li><i class="fas fa-check-circle"></i> Text Classification, NER</li>
-                        <li><i class="fas fa-check-circle"></i> Word Embeddings</li>
-                        <li><i class="fas fa-check-circle"></i> Sentiment Analysis</li>
-                        <li><i class="fas fa-check-circle"></i> Text Processing</li>
+                        <li><i class="fas fa-check-circle"></i> Data Structures & Algorithms</li>
+                        <li><i class="fas fa-check-circle"></i> Object-Oriented Programming (OOP)</li>
+                        <li><i class="fas fa-check-circle"></i> Operating Systems</li>
+                        <li><i class="fas fa-check-circle"></i> Database Management Systems (DBMS)</li>
                     </ul>
                 </div>
                 
@@ -1045,9 +1090,9 @@
             <div class="timeline">
                 <div class="timeline-item fade-in">
                     <div class="timeline-content">
-                        <span class="date">Apr 2025 - Jun 2025</span>
-                        <h3>PowerCred Technologies</h3>
-                        <h4>Data Scientist – HITL Intern</h4>
+                        <span class="date">Jun 2025</span>
+                        <h3>Interpay</h3>
+                        <h4>Flutter Developer and ML – HITL Intern</h4>
                         <ul>
                             <li>Developed a GenAI Drive assistant leveraging LangChain, Python, LLaMA3-70B, and RAG+FAISS to perform fast and accurate semantic search across 1M+ documents in under 2 seconds.</li>
                             <li>Boosted search precision by 35% via vector+metadata retrieval (e.g., owner, modified date, size).</li>
@@ -1058,7 +1103,7 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item fade-in">
+                <!-- <div class="timeline-item fade-in">
                     <div class="timeline-content">
                         <span class="date">Feb 2025 - Mar 2025</span>
                         <h3>Britannia Industries Limited</h3>
@@ -1082,117 +1127,187 @@
                             <li>Preprocessed data and fine-tuned models, leading to a 20% decrease in processing time.</li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title fade-in">Projects</h2>
-            <p class="section-description fade-in">Showcasing my technical expertise through innovative solutions and applications.</p>
-            
-            <div class="projects-grid">
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3 class="project-title">Advanced PDF Chat Assistant</h3>
-                        <p class="project-tech">Python, LangChain, Groq API, HuggingFace</p>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-description">
-                            <ul>
-                                <li>Built a 94% accurate RAG pipeline with FAISS & LLM chaining, boosting relevance by 40% using optimized chunking.</li>
-                                <li>Created a modular Streamlit UI with multi-backend LLMs (LLaMA3, DeepSeek) and 100+ page PDF processing in real-time.</li>
-                                <li>Integrated source-cited conversational retrieval, enabling follow-up history tracking and structured agent responses.</li>
-                            </ul>
-                        </div>
-                        <a href="https://github.com/parimal1009/Conversational-QA-Chatbot" class="project-link" target="_blank">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
+<section id="projects" class="projects">
+    <div class="container">
+        <h2 class="section-title fade-in">Projects</h2>
+        <p class="section-description fade-in">Showcasing my tech through innovative solutions and applications.</p>
+        
+        <div class="projects-grid">
+            <!-- ClinicEase -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <h3 class="project-title">ClinicEase - Clinic Management System</h3>
+                    <p class="project-tech">React, JavaScript, NodeJS, MongoDB, Render</p>
                 </div>
-                
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3 class="project-title">AI Research Assistant</h3>
-                        <p class="project-tech">Python, LangChain, Groq API, ArXiv, Wikipedia, DuckDuckGo</p>
+                <div class="project-body">
+                    <div class="project-description">
+                        <ul>
+                            <li>Developed a responsive, role-based clinic management system using ReactJS, JavaScript, and Node.js, deployed on Render</li>
+                            <li>Implemented dynamic routing and modular component architecture to efficiently manage appointment bookings and patient records</li>
+                            <li>Built appointment validation logic to prevent overbooking and enhance clinic workflow efficiency</li>
+                            <li>Optimized UI/UX for performance and scalability with clean code practices and modular design</li>
+                        </ul>
                     </div>
-                    <div class="project-body">
-                        <div class="project-description">
-                            <ul>
-                                <li>Developed multi-source GenAI agent querying ArXiv, Wikipedia, Web; selected optimal LLM (LLaMA3/DeepSeek) for each query.</li>
-                                <li>Engineered a retrieval pipeline with concise 500-char answers; improved semantic quality and ensured factual grounding.</li>
-                                <li>Implemented a robust fault-tolerant agent cutting LLM failures by 25%, boosting response speed by 60%.</li>
-                            </ul>
-                        </div>
-                        <a href="https://github.com/parimal1009/-AI-Research-Assistant-with-Multi-Source-Search-Capabilities" class="project-link" target="_blank">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3 class="project-title">Medical Data Extraction OCR</h3>
-                        <p class="project-tech">Python, Tesseract OCR, OpenCV, NLP, FastAPI, Streamlit</p>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-description">
-                            <ul>
-                                <li>Created an end-to-end OCR system for 1,500+ medical records/day with 92% accuracy and fast, structured JSON outputs.</li>
-                                <li>Reduced parsing errors by 30% using NLP, DS/Algo, RegEx, ensuring reliable downstream data processing.</li>
-                                <li>Cut manual labor by 70%, showcasing ownership, autonomy, and engineering mindset in delivery of solution.</li>
-                            </ul>
-                        </div>
-                        <a href="https://github.com/parimal1009/medical-data-extraction/tree/main" class="project-link" target="_blank">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3 class="project-title">Aerospace Investment Rating Analysis</h3>
-                        <p class="project-tech">Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn</p>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-description">
-                            <ul>
-                                <li>Analyzed 200+ aerospace companies using SFR ratings and data pipelines to drive investment insights.</li>
-                                <li>Trained ML models (Random Forest, Decision Tree) with 87% accuracy for financial risk prediction.</li>
-                                <li>Built visual dashboards for exploratory data analysis, aiding strategic decision-making and analytics.</li>
-                            </ul>
-                        </div>
-                        <a href="https://github.com/parimal1009/Aerospace_Investment_Rating_Analysis" class="project-link" target="_blank">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3 class="project-title">Osteoporosis Risk Prediction</h3>
-                        <p class="project-tech">Python, Scikit-learn</p>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-description">
-                            <ul>
-                                <li>Built ML models (Decision Tree, SVC, Random Forest, Logistic Regression) on 1,000+ medical records to predict osteoporosis risk.</li>
-                                <li>Achieved 87% accuracy and identified top 5 contributing risk factors for early intervention insights.</li>
-                            </ul>
-                        </div>
-                        <a href="https://github.com/parimal1009/Risk_prediction_of_osteoporosis" class="project-link" target="_blank">
-                            View on GitHub <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
+                    <a href="https://hms-frontend-henna.vercel.app/" class="project-link" target="_blank">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
+
+            <!-- Multilingual Summarizer -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <h3 class="project-title">Multilingual Text Summarizer</h3>
+                    <p class="project-tech">Python, Hugging Face Transformers, Flask, PyTorch, NLP</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <ul>
+                            <li>Developed using transformer models like Pegasus, BERT2BERT and SimpleT5</li>
+                            <li>Enabled concise summarization across 27 languages with transfer learning</li>
+                            <li>Used Transformers, Flask, pandas, numpy, torch, tokenizers, etc.</li>
+                            <li>Built a responsive UI using Flask for user interaction</li>
+                        </ul>
+                    </div>
+                    <a href="https://github.com/AtharvNawal/Multilingual-Text-Summarizer" class="project-link" target="_blank">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Feedback Analysis -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <h3 class="project-title">Student Feedback Analysis and Visualization</h3>
+                    <p class="project-tech">R, ANOVA, t-tests, SVM, K-means, NLP</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <ul>
+                            <li>Visualized student feedback using charts, treemaps, and sentiment analysis</li>
+                            <li>Applied NLP (SVM) to analyze textual feedback and trends</li>
+                            <li>Used R for data processing, stats tests (ANOVA, t-tests), and plots</li>
+                        </ul>
+                    </div>
+                    <a href="https://github.com/AtharvNawal/Student-Feedback-Analysis-and-Visualization" class="project-link" target="_blank">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mini OS Simulator -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <h3 class="project-title">Mini OS Simulator (MOS)</h3>
+                    <p class="project-tech">C, Operating Systems, Paging, Spooling</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <ul>
+                            <li>Simulated key OS functionalities like job handling, paging, and spooling</li>
+                            <li>Implemented input/output spooling and basic memory management in C</li>
+                            <li>Split project into multiple modules to simulate real OS design</li>
+                        </ul>
+                    </div>
+                    <a href="https://github.com/AtharvNawal/MOS" class="project-link" target="_blank">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- VR Skateboarding -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <h3 class="project-title">VR Skateboarding Game</h3>
+                    <p class="project-tech">Unity, C#, VR Development</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <ul>
+                            <li>Built a Unity-based VR game with realistic physics and terrain</li>
+                            <li>Optimized for immersive VR experience with responsive controls</li>
+                            <li>Led the project from ideation to delivery as the team lead</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="project-link" target="_blank">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Password Strength Analyzer -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <h3 class="project-title">Password Strength Analyzer</h3>
+                    <p class="project-tech">Python, GenAI, Flask, ML, hashcat, NLP</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <ul>
+                            <li>Built a GenAI-powered analyzer to detect password weaknesses</li>
+                            <li>Used ML models to estimate time-to-crack and suggest improvements</li>
+                            <li>Integrated Flask backend with speech-to-text and real-time analysis</li>
+                        </ul>
+                    </div>
+                    <a href="https://github.com/AtharvNawal/Password-Strength-Analyzer" class="project-link" target="_blank">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Water Flow Meter -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <h3 class="project-title">Water Flow Meter</h3>
+                    <p class="project-tech">Arduino, Hall Effect Sensor, C</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <ul>
+                            <li>Designed an Arduino-based system with real-time flow control & LCD display</li>
+                            <li>Implemented auto shut-off using solenoid valve with alert limits</li>
+                            <li>Achieved 96% accuracy for home, industrial, and irrigation usage</li>
+                        </ul>
+                    </div>
+                    <a href="https://github.com/AtharvNawal/Water-Flow-Meter-with-LCD-Display" class="project-link" target="_blank">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Automated Guided Vehicle -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <h3 class="project-title">Automated Guided Vehicle (AGV)</h3>
+                    <p class="project-tech">Arduino, IR Sensors, HC-SR04, AFMotor Library</p>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <ul>
+                            <li>Built an Arduino-based line-following and obstacle-avoiding robot</li>
+                            <li>Used ultrasonic sensor for proximity detection and collision avoidance</li>
+                            <li>Implemented PWM motor control and directional logic using AFMotor</li>
+                        </ul>
+                    </div>
+                    <a href="https://github.com/AtharvNawal/Automated-Guided-Vehicle" class="project-link" target="_blank">
+                        View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Hackathons Section -->
-    <section id="hackathons" class="hackathons">
+<!--    <section id="hackathons" class="hackathons">
         <div class="container">
             <h2 class="section-title fade-in">Hackathon Achievements</h2>
             <p class="section-description fade-in">Competitive problem-solving experiences showcasing creativity and technical prowess.</p>
@@ -1234,64 +1349,96 @@
             </div>
         </div>
     </section>
-
+-->
     <!-- Certifications Section -->
     <section id="certifications" class="certifications">
         <div class="container">
             <h2 class="section-title fade-in">Courses & Certifications</h2>
-            <p class="section-description fade-in">Continuous learning to stay at the forefront of data science and AI technologies.</p>
+            <p class="section-description fade-in">Pursuing practical certifications to stay current with software engineering, AI, and full-stack development trends.</p>
             
             <div class="certifications-list">
                 <div class="certification-card fade-in">
                     <div class="certification-icon">
                         <i class="fas fa-certificate"></i>
                     </div>
-                    <h3 class="certification-name">Python for Machine Learning and Data Science Masterclass</h3>
-                    <p class="certification-issuer">Udemy</p>
+                    <h3 class="certification-name">
+                        <a href="https://www.hackerrank.com/certificates/iframe/e2c423c5c3e4" target="_blank">
+                            Java (Basic) <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="certification-issuer">HackerRank</p>
                 </div>
-                
+
                 <div class="certification-card fade-in">
                     <div class="certification-icon">
                         <i class="fas fa-certificate"></i>
                     </div>
-                    <h3 class="certification-name">CS50's Python</h3>
-                    <p class="certification-issuer">Harvard University</p>
+                    <h3 class="certification-name">
+                        <a href="https://www.hackerrank.com/certificates/66fc57e5f03a" target="_blank">
+                            Python (Basic) <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="certification-issuer">HackerRank</p>
                 </div>
-                
+
                 <div class="certification-card fade-in">
                     <div class="certification-icon">
                         <i class="fas fa-certificate"></i>
                     </div>
-                    <h3 class="certification-name">Data Science and AI</h3>
-                    <p class="certification-issuer">IBM</p>
+                    <h3 class="certification-name">
+                        <a href="https://www.hackerrank.com/certificates/c15621c7559e" target="_blank">
+                            MySQL (Basic) <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="certification-issuer">HackerRank</p>
                 </div>
-                
+
                 <div class="certification-card fade-in">
                     <div class="certification-icon">
                         <i class="fas fa-certificate"></i>
                     </div>
-                    <h3 class="certification-name">Crash Course in Python</h3>
-                    <p class="certification-issuer">Google</p>
+                    <h3 class="certification-name">
+                        <a href="https://drive.google.com/file/d/19Rukdj5hEghjwuU9Jv78wioY5l6z490s/view?usp=drive_link" target="_blank">
+                            Web Development Internship <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="certification-issuer">Pinnacle Lab (Dec 2024 – Jan 2025)</p>
                 </div>
-                
+
                 <div class="certification-card fade-in">
-                    <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <h3 class="certification-name">Generative AI with LangChain and Hugging Face</h3>
-                    <p class="certification-issuer">Udemy</p>
-                </div>
-                
-                <div class="certification-card fade-in">
-                    <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <h3 class="certification-name">RAG-LLM Evaluation & Test Automation</h3>
-                    <p class="certification-issuer">Udemy</p>
-                </div>
+                <div class="certification-icon"><i class="fas fa-certificate"></i></div>
+                <h3 class="certification-name">
+                    <a href="https://simpli-web.app.link/e/V72BXKjYFTb" target="_blank">
+                        Kali Linux Basics <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </h3>
+                <p class="certification-issuer">SimpliLearn</p>
+            </div>
+
+            <div class="certification-card fade-in">
+                <div class="certification-icon"><i class="fas fa-certificate"></i></div>
+                <h3 class="certification-name">
+                    <a href="https://simpli-web.app.link/e/pExjaJfYFTb" target="_blank">
+                        Design Thinking for Beginners <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </h3>
+                <p class="certification-issuer">SimpliLearn</p>
+            </div>
+
+            <div class="certification-card fade-in">
+                <div class="certification-icon"><i class="fas fa-certificate"></i></div>
+                <h3 class="certification-name">
+                    <a href="https://drive.google.com/file/d/16u_fodXjtFln0y0qiWafEimMjaj-Jl7y/view?usp=sharing" target="_blank">
+                        Microsoft Professional Program in AI <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </h3>
+                <p class="certification-issuer">Coincent</p>
+            </div>
+            
             </div>
         </div>
     </section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
@@ -1305,7 +1452,7 @@
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h3>Email</h3>
-                    <a href="mailto:parimal.kulkarni.btech2022@sitpune.edu.in">parimal.kulkarni.btech2022@sitpune.edu.in</a>
+                    <a href="nawalatharv@gmail.com">nawalatharv@gmail.com</a>
                 </div>
                 
                 <div class="contact-card fade-in">
@@ -1321,7 +1468,7 @@
                         <i class="fab fa-linkedin-in"></i>
                     </div>
                     <h3>LinkedIn</h3>
-                    <a href="https://www.linkedin.com/in/parimal-kulkarni-343877282/" target="_blank">Connect on LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/atharvnawal/" target="_blank">Connect on LinkedIn</a>
                 </div>
                 
                 <div class="contact-card fade-in">
@@ -1329,7 +1476,7 @@
                         <i class="fab fa-github"></i>
                     </div>
                     <h3>GitHub</h3>
-                    <a href="https://github.com/parimal1009" target="_blank">View Projects</a>
+                    <a href="https://github.com/AtharvNawal" target="_blank">View Projects</a>
                 </div>
             </div>
         </div>
@@ -1340,12 +1487,12 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Parimal Kulkarni</h3>
+                    <h3>Atharv Nawal</h3>
                     <p style="color: #ccc; margin-bottom: 20px;">Data Scientist & ML Engineer specializing in Generative AI and advanced ML applications.</p>
                     <div class="footer-social">
                         <a href="https://github.com/parimal1009" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="https://www.linkedin.com/in/parimal-kulkarni-343877282/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="mailto:parimal.kulkarni.btech2022@sitpune.edu.in"><i class="fas fa-envelope"></i></a>
+                        <a href="mailto:nawalatharv@gmail.com"><i class="fas fa-envelope"></i></a>
                         <a href="tel:+918087768244"><i class="fas fa-phone"></i></a>
                     </div>
                 </div>
@@ -1357,7 +1504,7 @@
                         <li><a href="#about">Skills</a></li>
                         <li><a href="#experience">Experience</a></li>
                         <li><a href="#projects">Projects</a></li>
-                        <li><a href="#hackathons">Hackathons</a></li>
+                        <!-- <li><a href="#hackathons">Hackathons</a></li> -->
                         <li><a href="#certifications">Certifications</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -1366,16 +1513,17 @@
                 <div class="footer-column">
                     <h3>Technical Skills</h3>
                     <ul class="footer-links">
-                        <li><a href="#about">Data Science & ML</a></li>
-                        <li><a href="#about">Deep Learning & NLP</a></li>
-                        <li><a href="#about">Generative AI</a></li>
-                        <li><a href="#about">Tools & Deployment</a></li>
+                        <li><a href="#about">Programming Languages</a></li>
+                        <li><a href="#about">Frameworks & Libraries</a></li>
+                        <li><a href="#about">Databases</a></li>
+                        <li><a href="#about">Core CS Concepts</a></li>
+                        <li><a href="#about">Soft Skills</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Parimal Kulkarni. All Rights Reserved.</p>
+                <p>&copy; 2025 Atharv Nawal. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -1472,9 +1620,7 @@
 
         // Background GIF rotation
         const backgroundGifs = [
-            "https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif",
             "https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/prevPageArrow.gif",
-            "https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif"
         ];
 
         let currentGifIndex = 0;
