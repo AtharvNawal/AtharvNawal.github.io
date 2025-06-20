@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,6 +37,59 @@
             line-height: 1.6;
         }
 
+        /*Resume CSS modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+        }
+
+        .modal-content {
+            position: fixed;
+            top: 50%;
+            left: 55%; /* Shifted slightly right to give more space on left */
+            transform: translate(-50%, -50%);
+            width: 95%; /* Increased width */
+            max-width: 1000px; /* Wider maximum width */
+            height: 85vh;
+            max-height: 800px;
+            background-color: white;
+            border-radius: 12px;
+            overflow: auto;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+            margin-left: 20px; /* Additional left margin */
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            z-index: 1001;
+            background: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+        
         /* Container */
         .container {
             max-width: 1200px;
@@ -812,19 +866,19 @@
             .timeline::after {
                 left: 31px;
             }
-            
+
             .timeline-item {
                 width: 100%;
                 padding-left: 80px;
                 padding-right: 25px;
             }
-            
-            .timeline-item:nth-child(odd), 
+
+            .timeline-item:nth-child(odd),
             .timeline-item:nth-child(even) {
                 left: 0;
             }
-            
-            .timeline-item:nth-child(odd)::after, 
+
+            .timeline-item:nth-child(odd)::after,
             .timeline-item:nth-child(even)::after {
                 left: 21px;
             }
@@ -834,23 +888,23 @@
             .hero-content h1 {
                 font-size: 2.8rem;
             }
-            
+
             .hamburger {
                 display: block;
             }
-            
+
             .hamburger.active .bar:nth-child(2) {
                 opacity: 0;
             }
-            
+
             .hamburger.active .bar:nth-child(1) {
                 transform: translateY(8px) rotate(45deg);
             }
-            
+
             .hamburger.active .bar:nth-child(3) {
                 transform: translateY(-8px) rotate(-45deg);
             }
-            
+
             .nav-links {
                 position: fixed;
                 left: -100%;
@@ -863,16 +917,16 @@
                 transition: 0.3s;
                 box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
             }
-            
+
             .nav-links.active {
                 left: 0;
                 padding: 20px 0;
             }
-            
+
             .nav-links li {
                 margin: 16px 0;
             }
-            
+
             .projects-grid {
                 grid-template-columns: 1fr;
             }
@@ -882,20 +936,20 @@
             section {
                 padding: 70px 0;
             }
-            
+
             .hero-content h1 {
                 font-size: 2.3rem;
             }
-            
+
             .hero-content h2 {
                 font-size: 1.4rem;
             }
-            
+
             .hero-buttons {
                 flex-direction: column;
                 gap: 15px;
             }
-            
+
             .section-title {
                 font-size: 2rem;
             }
@@ -919,7 +973,7 @@
             height: 20px;
             border: 2px solid var(--accent);
             border-radius: 50%;
-            position: fixed; 
+            position: fixed;
             pointer-events: none;
             z-index: 9999;
             transition: transform 0.2s ease;
@@ -941,6 +995,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Custom Cursor -->
     <div class="cursor"></div>
@@ -969,41 +1024,68 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-container">
-                <!-- Profile Picture on the Left -->
-                <div class="profile-pic-container fade-in">
-                    <img src="image.png" alt="Atharv Nawal" class="profile-pic">
+    <div class="container">
+        <div class="hero-container">
+            <!-- Profile Picture on the Left -->
+            <div class="profile-pic-container fade-in">
+                <img src="image.png" alt="Atharv Nawal" class="profile-pic">
+            </div>
+
+            <!-- Content on the Right -->
+            <div class="hero-content fade-in">
+                <h2>Hello, I'm</h2>
+                <h1>Atharv Nawal</h1>
+                <h2>CSE VIT'27</h2>
+                <p>Intern @Interpay | Java | Web Developer | Flutter | MongoDB | SQL | Sponsorship coordinator @EPEC
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    <button class="btn btn-primary" onclick="openResumeModal()">View Resume</button>
                 </div>
-                
-                <!-- Content on the Right -->
-                <div class="hero-content fade-in">
-                    <h2>Hello, I'm</h2>
-                    <h1>Atharv Nawal</h1>
-                    <h2>CSE VIT'27</h2>
-                    <p>Intern @Interpay | Java | Web Developer | Flutter | MongoDB | SQL | Sponsorship coordinator @EPEC</p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">View Projects</a>
-                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                <div id="resumeModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-btn" onclick="closeResumeModal()">&times;</span>
+                        <iframe src="resume.pdf" frameborder="0"></iframe>
                     </div>
-                    <div class="social-links">
-                        <a href="https://github.com/AtharvNawal" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/atharvnawal/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="mailto:nawalatharv@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-                        <a href="tel:+91 7820909186" target="_blank"><i class="fas fa-phone"></i></a>
-                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://github.com/AtharvNawal" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/atharvnawal/" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:nawalatharv@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+91 7820909186" target="_blank"><i class="fas fa-phone"></i></a>
                 </div>
             </div>
         </div>
+    </div>
     </section>
-    
+
+<script>
+    function openResumeModal() {
+        document.getElementById("resumeModal").style.display = "flex";
+    }
+
+    function closeResumeModal() {
+        document.getElementById("resumeModal").style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        const modal = document.getElementById("resumeModal");
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 
     <!-- About/Skills Section -->
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title fade-in">Technical Skills</h2>
-            <p class="section-description fade-in">My toolkit for solving complex data problems and building intelligent applications.</p>
-            
+            <p class="section-description fade-in">My toolkit for solving complex data problems and building intelligent
+                applications.</p>
+
             <div class="skills-container">
                 <div class="skill-category fade-in">
                     <h3><i class="fas fa-code"></i> Programming</h3>
@@ -1018,7 +1100,7 @@
                         <li><i class="fas fa-check-circle"></i> MongoDB</li>
                     </ul>
                 </div>
-                
+
                 <div class="skill-category fade-in">
                     <h3><i class="fas fa-tools"></i> Frameworks & Libraries</h3>
                     <ul class="skill-list">
@@ -1053,7 +1135,7 @@
                         <li><i class="fas fa-check-circle"></i> Database Management Systems (DBMS)</li>
                     </ul>
                 </div>
-                
+
                 <div class="skill-category fade-in">
                     <h3><i class="fas fa-robot"></i> Generative AI</h3>
                     <ul class="skill-list">
@@ -1065,7 +1147,7 @@
                         <li><i class="fas fa-check-circle"></i> Prompt Engineering</li>
                     </ul>
                 </div>
-                
+
                 <div class="skill-category fade-in">
                     <h3><i class="fas fa-server"></i> Tools & Deployment</h3>
                     <ul class="skill-list">
@@ -1085,8 +1167,9 @@
     <section id="experience" class="experience">
         <div class="container">
             <h2 class="section-title fade-in">Work Experience</h2>
-            <p class="section-description fade-in">My professional journey building AI solutions and data-driven products.</p>
-            
+            <p class="section-description fade-in">My professional journey building AI solutions and data-driven
+                products.</p>
+
             <div class="timeline">
                 <div class="timeline-item fade-in">
                     <div class="timeline-content">
@@ -1094,15 +1177,21 @@
                         <h3>Interpay</h3>
                         <h4>Flutter Developer and ML – HITL Intern</h4>
                         <ul>
-                            <li>Developed a GenAI Drive assistant leveraging LangChain, Python, LLaMA3-70B, and RAG+FAISS to perform fast and accurate semantic search across 1M+ documents in under 2 seconds.</li>
-                            <li>Boosted search precision by 35% via vector+metadata retrieval (e.g., owner, modified date, size).</li>
-                            <li>Designed SOC 2–compliant architecture on GCP using OAuth 2.0 and Cloud Functions to support 500+ real-time queries/day.</li>
-                            <li>Automated document ingestion from PDFs/Office using PyMuPDF, Tika, PyPDF2, achieving 92% accuracy and 60% speedup.</li>
-                            <li>Built a Streamlit UI with real-time bounding-box validation and seamless MLOps integration.</li>
+                            <li>Developed a GenAI Drive assistant leveraging LangChain, Python, LLaMA3-70B, and
+                                RAG+FAISS to perform fast and accurate semantic search across 1M+ documents in under 2
+                                seconds.</li>
+                            <li>Boosted search precision by 35% via vector+metadata retrieval (e.g., owner, modified
+                                date, size).</li>
+                            <li>Designed SOC 2–compliant architecture on GCP using OAuth 2.0 and Cloud Functions to
+                                support 500+ real-time queries/day.</li>
+                            <li>Automated document ingestion from PDFs/Office using PyMuPDF, Tika, PyPDF2, achieving 92%
+                                accuracy and 60% speedup.</li>
+                            <li>Built a Streamlit UI with real-time bounding-box validation and seamless MLOps
+                                integration.</li>
                         </ul>
                     </div>
                 </div>
-                
+
                 <!-- <div class="timeline-item fade-in">
                     <div class="timeline-content">
                         <span class="date">Feb 2025 - Mar 2025</span>
@@ -1133,181 +1222,190 @@
     </section>
 
     <!-- Projects Section -->
-<section id="projects" class="projects">
-    <div class="container">
-        <h2 class="section-title fade-in">Projects</h2>
-        <p class="section-description fade-in">Showcasing my tech through innovative solutions and applications.</p>
-        
-        <div class="projects-grid">
-            <!-- ClinicEase -->
-            <div class="project-card fade-in">
-                <div class="project-header">
-                    <h3 class="project-title">ClinicEase - Clinic Management System</h3>
-                    <p class="project-tech">React, JavaScript, NodeJS, MongoDB, Render</p>
-                </div>
-                <div class="project-body">
-                    <div class="project-description">
-                        <ul>
-                            <li>Developed a responsive, role-based clinic management system using ReactJS, JavaScript, and Node.js, deployed on Render</li>
-                            <li>Implemented dynamic routing and modular component architecture to efficiently manage appointment bookings and patient records</li>
-                            <li>Built appointment validation logic to prevent overbooking and enhance clinic workflow efficiency</li>
-                            <li>Optimized UI/UX for performance and scalability with clean code practices and modular design</li>
-                        </ul>
-                    </div>
-                    <a href="https://hms-frontend-henna.vercel.app/" class="project-link" target="_blank">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title fade-in">Projects</h2>
+            <p class="section-description fade-in">Showcasing my tech through innovative solutions and applications.</p>
 
-            <!-- Multilingual Summarizer -->
-            <div class="project-card fade-in">
-                <div class="project-header">
-                    <h3 class="project-title">Multilingual Text Summarizer</h3>
-                    <p class="project-tech">Python, Hugging Face Transformers, Flask, PyTorch, NLP</p>
-                </div>
-                <div class="project-body">
-                    <div class="project-description">
-                        <ul>
-                            <li>Developed using transformer models like Pegasus, BERT2BERT and SimpleT5</li>
-                            <li>Enabled concise summarization across 27 languages with transfer learning</li>
-                            <li>Used Transformers, Flask, pandas, numpy, torch, tokenizers, etc.</li>
-                            <li>Built a responsive UI using Flask for user interaction</li>
-                        </ul>
+            <div class="projects-grid">
+                <!-- ClinicEase -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">ClinicEase - Clinic Management System</h3>
+                        <p class="project-tech">React, JavaScript, NodeJS, MongoDB, Render</p>
                     </div>
-                    <a href="https://github.com/AtharvNawal/Multilingual-Text-Summarizer" class="project-link" target="_blank">
-                        View on GitHub <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Feedback Analysis -->
-            <div class="project-card fade-in">
-                <div class="project-header">
-                    <h3 class="project-title">Student Feedback Analysis and Visualization</h3>
-                    <p class="project-tech">R, ANOVA, t-tests, SVM, K-means, NLP</p>
-                </div>
-                <div class="project-body">
-                    <div class="project-description">
-                        <ul>
-                            <li>Visualized student feedback using charts, treemaps, and sentiment analysis</li>
-                            <li>Applied NLP (SVM) to analyze textual feedback and trends</li>
-                            <li>Used R for data processing, stats tests (ANOVA, t-tests), and plots</li>
-                        </ul>
+                    <div class="project-body">
+                        <div class="project-description">
+                            <ul>
+                                <li>Developed a responsive, role-based clinic management system using ReactJS,
+                                    JavaScript, and Node.js, deployed on Render</li>
+                                <li>Implemented dynamic routing and modular component architecture to efficiently manage
+                                    appointment bookings and patient records</li>
+                                <li>Built appointment validation logic to prevent overbooking and enhance clinic
+                                    workflow efficiency</li>
+                                <li>Optimized UI/UX for performance and scalability with clean code practices and
+                                    modular design</li>
+                            </ul>
+                        </div>
+                        <a href="https://hms-frontend-henna.vercel.app/" class="project-link" target="_blank">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
-                    <a href="https://github.com/AtharvNawal/Student-Feedback-Analysis-and-Visualization" class="project-link" target="_blank">
-                        View on GitHub <i class="fas fa-arrow-right"></i>
-                    </a>
                 </div>
-            </div>
 
-            <!-- Mini OS Simulator -->
-            <div class="project-card fade-in">
-                <div class="project-header">
-                    <h3 class="project-title">Mini OS Simulator (MOS)</h3>
-                    <p class="project-tech">C, Operating Systems, Paging, Spooling</p>
-                </div>
-                <div class="project-body">
-                    <div class="project-description">
-                        <ul>
-                            <li>Simulated key OS functionalities like job handling, paging, and spooling</li>
-                            <li>Implemented input/output spooling and basic memory management in C</li>
-                            <li>Split project into multiple modules to simulate real OS design</li>
-                        </ul>
+                <!-- Multilingual Summarizer -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">Multilingual Text Summarizer</h3>
+                        <p class="project-tech">Python, Hugging Face Transformers, Flask, PyTorch, NLP</p>
                     </div>
-                    <a href="https://github.com/AtharvNawal/MOS" class="project-link" target="_blank">
-                        View on GitHub <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- VR Skateboarding -->
-            <div class="project-card fade-in">
-                <div class="project-header">
-                    <h3 class="project-title">VR Skateboarding Game</h3>
-                    <p class="project-tech">Unity, C#, VR Development</p>
-                </div>
-                <div class="project-body">
-                    <div class="project-description">
-                        <ul>
-                            <li>Built a Unity-based VR game with realistic physics and terrain</li>
-                            <li>Optimized for immersive VR experience with responsive controls</li>
-                            <li>Led the project from ideation to delivery as the team lead</li>
-                        </ul>
+                    <div class="project-body">
+                        <div class="project-description">
+                            <ul>
+                                <li>Developed using transformer models like Pegasus, BERT2BERT and SimpleT5</li>
+                                <li>Enabled concise summarization across 27 languages with transfer learning</li>
+                                <li>Used Transformers, Flask, pandas, numpy, torch, tokenizers, etc.</li>
+                                <li>Built a responsive UI using Flask for user interaction</li>
+                            </ul>
+                        </div>
+                        <a href="https://github.com/AtharvNawal/Multilingual-Text-Summarizer" class="project-link"
+                            target="_blank">
+                            View on GitHub <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
-                    <a href="#" class="project-link" target="_blank">
-                        View on GitHub <i class="fas fa-arrow-right"></i>
-                    </a>
                 </div>
-            </div>
 
-            <!-- Password Strength Analyzer -->
-            <div class="project-card fade-in">
-                <div class="project-header">
-                    <h3 class="project-title">Password Strength Analyzer</h3>
-                    <p class="project-tech">Python, GenAI, Flask, ML, hashcat, NLP</p>
-                </div>
-                <div class="project-body">
-                    <div class="project-description">
-                        <ul>
-                            <li>Built a GenAI-powered analyzer to detect password weaknesses</li>
-                            <li>Used ML models to estimate time-to-crack and suggest improvements</li>
-                            <li>Integrated Flask backend with speech-to-text and real-time analysis</li>
-                        </ul>
+                <!-- Feedback Analysis -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">Student Feedback Analysis and Visualization</h3>
+                        <p class="project-tech">R, ANOVA, t-tests, SVM, K-means, NLP</p>
                     </div>
-                    <a href="https://github.com/AtharvNawal/Password-Strength-Analyzer" class="project-link" target="_blank">
-                        View on GitHub <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Water Flow Meter -->
-            <div class="project-card fade-in">
-                <div class="project-header">
-                    <h3 class="project-title">Water Flow Meter</h3>
-                    <p class="project-tech">Arduino, Hall Effect Sensor, C</p>
-                </div>
-                <div class="project-body">
-                    <div class="project-description">
-                        <ul>
-                            <li>Designed an Arduino-based system with real-time flow control & LCD display</li>
-                            <li>Implemented auto shut-off using solenoid valve with alert limits</li>
-                            <li>Achieved 96% accuracy for home, industrial, and irrigation usage</li>
-                        </ul>
+                    <div class="project-body">
+                        <div class="project-description">
+                            <ul>
+                                <li>Visualized student feedback using charts, treemaps, and sentiment analysis</li>
+                                <li>Applied NLP (SVM) to analyze textual feedback and trends</li>
+                                <li>Used R for data processing, stats tests (ANOVA, t-tests), and plots</li>
+                            </ul>
+                        </div>
+                        <a href="https://github.com/AtharvNawal/Student-Feedback-Analysis-and-Visualization"
+                            class="project-link" target="_blank">
+                            View on GitHub <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
-                    <a href="https://github.com/AtharvNawal/Water-Flow-Meter-with-LCD-Display" class="project-link" target="_blank">
-                        View on GitHub <i class="fas fa-arrow-right"></i>
-                    </a>
                 </div>
-            </div>
 
-            <!-- Automated Guided Vehicle -->
-            <div class="project-card fade-in">
-                <div class="project-header">
-                    <h3 class="project-title">Automated Guided Vehicle (AGV)</h3>
-                    <p class="project-tech">Arduino, IR Sensors, HC-SR04, AFMotor Library</p>
-                </div>
-                <div class="project-body">
-                    <div class="project-description">
-                        <ul>
-                            <li>Built an Arduino-based line-following and obstacle-avoiding robot</li>
-                            <li>Used ultrasonic sensor for proximity detection and collision avoidance</li>
-                            <li>Implemented PWM motor control and directional logic using AFMotor</li>
-                        </ul>
+                <!-- Mini OS Simulator -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">Mini OS Simulator (MOS)</h3>
+                        <p class="project-tech">C, Operating Systems, Paging, Spooling</p>
                     </div>
-                    <a href="https://github.com/AtharvNawal/Automated-Guided-Vehicle" class="project-link" target="_blank">
-                        View on GitHub <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <div class="project-body">
+                        <div class="project-description">
+                            <ul>
+                                <li>Simulated key OS functionalities like job handling, paging, and spooling</li>
+                                <li>Implemented input/output spooling and basic memory management in C</li>
+                                <li>Split project into multiple modules to simulate real OS design</li>
+                            </ul>
+                        </div>
+                        <a href="https://github.com/AtharvNawal/MOS" class="project-link" target="_blank">
+                            View on GitHub <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
-            </div>
 
+                <!-- VR Skateboarding -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">VR Skateboarding Game</h3>
+                        <p class="project-tech">Unity, C#, VR Development</p>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-description">
+                            <ul>
+                                <li>Built a Unity-based VR game with realistic physics and terrain</li>
+                                <li>Optimized for immersive VR experience with responsive controls</li>
+                                <li>Led the project from ideation to delivery as the team lead</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="project-link" target="_blank">
+                            View on GitHub <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Password Strength Analyzer -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">Password Strength Analyzer</h3>
+                        <p class="project-tech">Python, GenAI, Flask, ML, hashcat, NLP</p>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-description">
+                            <ul>
+                                <li>Built a GenAI-powered analyzer to detect password weaknesses</li>
+                                <li>Used ML models to estimate time-to-crack and suggest improvements</li>
+                                <li>Integrated Flask backend with speech-to-text and real-time analysis</li>
+                            </ul>
+                        </div>
+                        <a href="https://github.com/AtharvNawal/Password-Strength-Analyzer" class="project-link"
+                            target="_blank">
+                            View on GitHub <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Water Flow Meter -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">Water Flow Meter</h3>
+                        <p class="project-tech">Arduino, Hall Effect Sensor, C</p>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-description">
+                            <ul>
+                                <li>Designed an Arduino-based system with real-time flow control & LCD display</li>
+                                <li>Implemented auto shut-off using solenoid valve with alert limits</li>
+                                <li>Achieved 96% accuracy for home, industrial, and irrigation usage</li>
+                            </ul>
+                        </div>
+                        <a href="https://github.com/AtharvNawal/Water-Flow-Meter-with-LCD-Display" class="project-link"
+                            target="_blank">
+                            View on GitHub <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Automated Guided Vehicle -->
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3 class="project-title">Automated Guided Vehicle (AGV)</h3>
+                        <p class="project-tech">Arduino, IR Sensors, HC-SR04, AFMotor Library</p>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-description">
+                            <ul>
+                                <li>Built an Arduino-based line-following and obstacle-avoiding robot</li>
+                                <li>Used ultrasonic sensor for proximity detection and collision avoidance</li>
+                                <li>Implemented PWM motor control and directional logic using AFMotor</li>
+                            </ul>
+                        </div>
+                        <a href="https://github.com/AtharvNawal/Automated-Guided-Vehicle" class="project-link"
+                            target="_blank">
+                            View on GitHub <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
     <!-- Hackathons Section -->
-<!--    <section id="hackathons" class="hackathons">
+    <!--    <section id="hackathons" class="hackathons">
         <div class="container">
             <h2 class="section-title fade-in">Hackathon Achievements</h2>
             <p class="section-description fade-in">Competitive problem-solving experiences showcasing creativity and technical prowess.</p>
@@ -1354,8 +1452,9 @@
     <section id="certifications" class="certifications">
         <div class="container">
             <h2 class="section-title fade-in">Courses & Certifications</h2>
-            <p class="section-description fade-in">Pursuing practical certifications to stay current with software engineering, AI, and full-stack development trends.</p>
-            
+            <p class="section-description fade-in">Pursuing practical certifications to stay current with software
+                engineering, AI, and full-stack development trends.</p>
+
             <div class="certifications-list">
                 <div class="certification-card fade-in">
                     <div class="certification-icon">
@@ -1398,7 +1497,8 @@
                         <i class="fas fa-certificate"></i>
                     </div>
                     <h3 class="certification-name">
-                        <a href="https://drive.google.com/file/d/19Rukdj5hEghjwuU9Jv78wioY5l6z490s/view?usp=drive_link" target="_blank">
+                        <a href="https://drive.google.com/file/d/19Rukdj5hEghjwuU9Jv78wioY5l6z490s/view?usp=drive_link"
+                            target="_blank">
                             Web Development Internship <i class="fas fa-external-link-alt"></i>
                         </a>
                     </h3>
@@ -1406,35 +1506,36 @@
                 </div>
 
                 <div class="certification-card fade-in">
-                <div class="certification-icon"><i class="fas fa-certificate"></i></div>
-                <h3 class="certification-name">
-                    <a href="https://simpli-web.app.link/e/V72BXKjYFTb" target="_blank">
-                        Kali Linux Basics <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </h3>
-                <p class="certification-issuer">SimpliLearn</p>
-            </div>
+                    <div class="certification-icon"><i class="fas fa-certificate"></i></div>
+                    <h3 class="certification-name">
+                        <a href="https://simpli-web.app.link/e/V72BXKjYFTb" target="_blank">
+                            Kali Linux Basics <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="certification-issuer">SimpliLearn</p>
+                </div>
 
-            <div class="certification-card fade-in">
-                <div class="certification-icon"><i class="fas fa-certificate"></i></div>
-                <h3 class="certification-name">
-                    <a href="https://simpli-web.app.link/e/pExjaJfYFTb" target="_blank">
-                        Design Thinking for Beginners <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </h3>
-                <p class="certification-issuer">SimpliLearn</p>
-            </div>
+                <div class="certification-card fade-in">
+                    <div class="certification-icon"><i class="fas fa-certificate"></i></div>
+                    <h3 class="certification-name">
+                        <a href="https://simpli-web.app.link/e/pExjaJfYFTb" target="_blank">
+                            Design Thinking for Beginners <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="certification-issuer">SimpliLearn</p>
+                </div>
 
-            <div class="certification-card fade-in">
-                <div class="certification-icon"><i class="fas fa-certificate"></i></div>
-                <h3 class="certification-name">
-                    <a href="https://drive.google.com/file/d/16u_fodXjtFln0y0qiWafEimMjaj-Jl7y/view?usp=sharing" target="_blank">
-                        Microsoft Professional Program in AI <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </h3>
-                <p class="certification-issuer">Coincent</p>
-            </div>
-            
+                <div class="certification-card fade-in">
+                    <div class="certification-icon"><i class="fas fa-certificate"></i></div>
+                    <h3 class="certification-name">
+                        <a href="https://drive.google.com/file/d/16u_fodXjtFln0y0qiWafEimMjaj-Jl7y/view?usp=sharing"
+                            target="_blank">
+                            Microsoft Professional Program in AI <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </h3>
+                    <p class="certification-issuer">Coincent</p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -1444,8 +1545,9 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title fade-in">Get In Touch</h2>
-            <p class="section-description fade-in">Interested in working together? Let's connect and discuss how we can collaborate.</p>
-            
+            <p class="section-description fade-in">Interested in working together? Let's connect and discuss how we can
+                collaborate.</p>
+
             <div class="contact-info">
                 <div class="contact-card fade-in">
                     <div class="contact-icon">
@@ -1454,7 +1556,7 @@
                     <h3>Email</h3>
                     <a href="nawalatharv@gmail.com">nawalatharv@gmail.com</a>
                 </div>
-                
+
                 <div class="contact-card fade-in">
                     <div class="contact-icon">
                         <i class="fas fa-phone"></i>
@@ -1462,7 +1564,7 @@
                     <h3>Phone</h3>
                     <a href="tel:+918087768244">+91 8087768244</a>
                 </div>
-                
+
                 <div class="contact-card fade-in">
                     <div class="contact-icon">
                         <i class="fab fa-linkedin-in"></i>
@@ -1470,7 +1572,7 @@
                     <h3>LinkedIn</h3>
                     <a href="https://www.linkedin.com/in/atharvnawal/" target="_blank">Connect on LinkedIn</a>
                 </div>
-                
+
                 <div class="contact-card fade-in">
                     <div class="contact-icon">
                         <i class="fab fa-github"></i>
@@ -1488,15 +1590,17 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>Atharv Nawal</h3>
-                    <p style="color: #ccc; margin-bottom: 20px;">Data Scientist & ML Engineer specializing in Generative AI and advanced ML applications.</p>
+                    <p style="color: #ccc; margin-bottom: 20px;">Data Scientist & ML Engineer specializing in Generative
+                        AI and advanced ML applications.</p>
                     <div class="footer-social">
                         <a href="https://github.com/parimal1009" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/parimal-kulkarni-343877282/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/in/parimal-kulkarni-343877282/" target="_blank"><i
+                                class="fab fa-linkedin-in"></i></a>
                         <a href="mailto:nawalatharv@gmail.com"><i class="fas fa-envelope"></i></a>
                         <a href="tel:+918087768244"><i class="fas fa-phone"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3>Links</h3>
                     <ul class="footer-links">
@@ -1509,7 +1613,7 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3>Technical Skills</h3>
                     <ul class="footer-links">
@@ -1521,7 +1625,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 Atharv Nawal. All Rights Reserved.</p>
             </div>
@@ -1586,30 +1690,30 @@
         if (window.innerWidth > 768) {
             cursor.style.display = "block";
             cursorDot.style.display = "block";
-            
+
             document.addEventListener("mousemove", e => {
                 cursor.style.left = e.clientX + "px";
                 cursor.style.top = e.clientY + "px";
-                
+
                 cursorDot.style.left = e.clientX + "px";
                 cursorDot.style.top = e.clientY + "px";
             });
-            
+
             document.addEventListener("mousedown", () => {
                 cursor.style.transform = "translate(-50%, -50%) scale(0.8)";
             });
-            
+
             document.addEventListener("mouseup", () => {
                 cursor.style.transform = "translate(-50%, -50%) scale(1)";
             });
-            
+
             document.querySelectorAll("a, button, .btn").forEach(el => {
                 el.addEventListener("mouseenter", () => {
                     cursor.style.transform = "translate(-50%, -50%) scale(1.5)";
                     cursor.style.borderColor = "var(--accent)";
                     cursorDot.style.backgroundColor = "var(--accent)";
                 });
-                
+
                 el.addEventListener("mouseleave", () => {
                     cursor.style.transform = "translate(-50%, -50%) scale(1)";
                     cursor.style.borderColor = "var(--accent)";
@@ -1629,7 +1733,7 @@
         function rotateBackgroundGif() {
             currentGifIndex = (currentGifIndex + 1) % backgroundGifs.length;
             bgGifElement.style.opacity = 0;
-            
+
             setTimeout(() => {
                 bgGifElement.src = backgroundGifs[currentGifIndex];
                 bgGifElement.style.opacity = 0.15;
@@ -1659,4 +1763,5 @@
         });
     </script>
 </body>
+
 </html>
