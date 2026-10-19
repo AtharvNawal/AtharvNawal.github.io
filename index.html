@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atharv Nawal | Developer & ML Enthusiast</title>
-    <meta name="description" content="Atharv Nawal: CSE student at VIT Pune, Flutter and ML intern at Interpay. Web apps, mobile apps, machine learning and GenAI projects.">
+    <meta name="description" content="Atharv Nawal: CSE student at VIT Pune, former Flutter and ML intern at Interpay, open to work. Web apps, mobile apps, machine learning and GenAI projects.">
     <meta name="author" content="Atharv Nawal">
     <meta property="og:title" content="Atharv Nawal | Developer & ML Enthusiast">
-    <meta property="og:description" content="Web, mobile and ML projects by Atharv Nawal, CSE VIT Pune '27.">
+    <meta property="og:description" content="Web, mobile and ML projects by Atharv Nawal, CSE VIT Pune '27. Open to work.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="image.png">
     <meta name="theme-color" content="#5b3cf5">
@@ -1346,6 +1346,12 @@
             animation: dotPulse 2s infinite;
         }
 
+        /* finished roles get a calm, filled dot instead of the live pulse */
+        .t-item.past::before {
+            background: var(--accent);
+            animation: none;
+        }
+
         @keyframes dotPulse {
             0% { box-shadow: 0 0 0 0 rgba(124, 99, 255, .5); }
             70% { box-shadow: 0 0 0 14px rgba(124, 99, 255, 0); }
@@ -2206,7 +2212,7 @@
                 <button class="theme-btn" aria-label="Switch light or dark theme" title="Switch theme">
                     <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
                 </button>
-                <a href="#contact" class="btn btn-solid nav-cta">Let's Talk</a>
+                <a href="#contact" class="btn btn-solid nav-cta">Hire Me</a>
                 <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
             </div>
         </div>
@@ -2222,11 +2228,11 @@
 
         <div class="container hero-grid">
             <div class="hero-text">
-                <div class="status-pill hero-in" style="--d:.1s"><span class="status-dot"></span>Open to internships & projects</div>
+                <div class="status-pill hero-in" style="--d:.1s"><span class="status-dot"></span>Open to work: internships & full-time roles</div>
                 <p class="hello hero-in" style="--d:.2s">Hello! I'm <span class="wave">👋</span></p>
                 <h1 class="hero-name">Atharv Nawal</h1>
                 <h2 class="hero-role hero-in" style="--d:.9s"><span id="typed-role"></span><span class="caret"></span></h2>
-                <p class="hero-sub hero-in" style="--d:1.05s">CSE student at VIT Pune ('27), Flutter and ML intern at Interpay, and Sponsorship Coordinator at EPEC. I build web apps, mobile apps and ML projects.</p>
+                <p class="hero-sub hero-in" style="--d:1.05s">CSE student at VIT Pune ('27), previously a Flutter and ML intern at Interpay, and Sponsorship Coordinator at EPEC. I build web apps, mobile apps and ML projects, and I'm looking for my next role.</p>
 
                 <div class="email-box hero-in" style="--d:1.15s">
                     <div class="email-field"><i class="fas fa-envelope"></i><span>nawalatharv@gmail.com</span></div>
@@ -2251,8 +2257,8 @@
                     <div class="photo-frame"></div>
                     <div class="photo-box"><img src="image.png" alt="Atharv Nawal"></div>
                     <div class="photo-badge badge-1">
-                        <div class="b-icon"><i class="fas fa-code"></i></div>
-                        <div><strong>Intern @Interpay</strong><small>Flutter & ML</small></div>
+                        <div class="b-icon"><i class="fas fa-briefcase"></i></div>
+                        <div><strong>Open to Work</strong><small>Ex-Interpay, Flutter & ML</small></div>
                     </div>
                     <div class="photo-badge badge-2">
                         <div class="b-icon"><i class="fas fa-graduation-cap"></i></div>
@@ -2304,8 +2310,12 @@
                         <div><small>Studying</small><strong>Computer Science, VIT Pune ('27)</strong></div>
                     </li>
                     <li data-reveal="left">
+                        <span class="f-icon"><i class="fas fa-circle-check"></i></span>
+                        <div><small>Status</small><strong>Open to work: internships & full-time roles</strong></div>
+                    </li>
+                    <li data-reveal="left">
                         <span class="f-icon"><i class="fas fa-briefcase"></i></span>
-                        <div><small>Currently</small><strong>Flutter Developer & ML Intern, Interpay</strong></div>
+                        <div><small>Previously</small><strong>Flutter Developer & ML Intern, Interpay</strong></div>
                     </li>
                     <li data-reveal="left">
                         <span class="f-icon"><i class="fas fa-handshake"></i></span>
@@ -2321,7 +2331,7 @@
             <div class="about-text">
                 <p class="lead" data-reveal="right">Third-year CS student at VIT Pune with strong skills in C, Java, Flutter, R, the MERN stack and data analysis, experienced in NLP, embedded systems and full-stack development.</p>
                 <p data-reveal="right">My work ranges from a clinic management system built with React and Node.js, to a multilingual text summarizer on Hugging Face Transformers, to Arduino hardware like a water flow meter and a line-following robot.</p>
-                <p data-reveal="right">I enjoy turning ideas into working products, and I'm always looking for chances to learn more about machine learning, generative AI and building things people actually use.</p>
+                <p data-reveal="right">I enjoy turning ideas into working products. After my internship at Interpay, I'm now looking for my next opportunity in machine learning, generative AI or app development, building things people actually use.</p>
                 <div class="about-actions" data-reveal="right">
                     <button class="btn btn-solid" onclick="openResumeModal()">View Resume <i class="fas fa-arrow-right"></i></button>
                     <a href="resume.pdf" download class="btn btn-outline"><i class="fas fa-download"></i> Download CV</a>
@@ -2453,8 +2463,13 @@
             <p class="section-desc" data-reveal="up">My professional journey building AI solutions and data-driven products.</p>
 
             <div class="timeline">
-                <!-- data-start (YYYY-MM) lets the page work out "x months" by itself. Add data-end="YYYY-MM" when a role finishes. -->
-                <div class="t-item" data-reveal="left" data-start="2025-06">
+                <!--
+                    data-start="YYYY-MM" is when the role began.
+                    data-end="YYYY-MM" is when it finished: the page then shows "Jun 2025 - Nov 2025" and the length (e.g. "6 mos").
+                    data-end="" (empty) means the role is over but no end month is set yet: it shows "Jun 2025 - Completed".
+                    No data-end at all means it is a current role ("Present").
+                -->
+                <div class="t-item" data-reveal="left" data-start="2025-06" data-end="">
                     <div class="t-head">
                         <span class="t-date">Jun 2025</span>
                         <span class="t-tenure"></span>
@@ -2649,7 +2664,7 @@
         <div class="container">
             <span class="section-label">Get in touch</span>
             <h2 class="section-title">Let's Work Together</h2>
-            <p class="section-desc" data-reveal="up">Have an internship, a project or just a question? Send a message and I'll get back to you.</p>
+            <p class="section-desc" data-reveal="up">I'm currently open to work. Have an internship, a full-time role, a project or just a question? Send a message and I'll get back to you.</p>
 
             <div class="contact-grid">
                 <ul class="contact-list">
@@ -2851,10 +2866,27 @@
         $$(".cert").forEach((c, i) => { c.querySelector(".c-num").textContent = String(i + 1).padStart(2, "0"); });
         $$(".service").forEach((s, i) => { s.querySelector(".s-num").textContent = String(i + 1).padStart(2, "0"); });
 
-        // experience: work out how long each role has lasted
+        // experience: dates and length of each role
+        //   no data-end        -> current role, "Jun 2025 - Present"
+        //   data-end=""        -> finished role, end month not set yet, "Jun 2025 - Completed"
+        //   data-end="YYYY-MM" -> finished role, "Jun 2025 - Nov 2025" plus its length
         $$(".t-item[data-start]").forEach(item => {
+            const fmt = (y, m) => new Date(y, m - 1).toLocaleDateString("en-GB", { month: "short", year: "numeric" });
             const [sy, sm] = item.dataset.start.split("-").map(Number);
-            const end = item.dataset.end ? item.dataset.end.split("-").map(Number) : null;
+            const date = item.querySelector(".t-date");
+            const tenure = item.querySelector(".t-tenure");
+            const hasEnd = item.hasAttribute("data-end");
+            const endVal = (item.dataset.end || "").trim();
+
+            if (hasEnd) item.classList.add("past");
+
+            if (hasEnd && !endVal) {
+                date.textContent = `${fmt(sy, sm)} - Completed`;
+                tenure.textContent = "";
+                return;
+            }
+
+            const end = endVal ? endVal.split("-").map(Number) : null;
             const now = new Date();
             const ey = end ? end[0] : now.getFullYear();
             const em = end ? end[1] : now.getMonth() + 1;
@@ -2863,11 +2895,8 @@
             const parts = [];
             if (yrs) parts.push(yrs + (yrs > 1 ? " yrs" : " yr"));
             if (mos) parts.push(mos + (mos > 1 ? " mos" : " mo"));
-            const date = item.querySelector(".t-date");
-            const startLabel = new Date(sy, sm - 1).toLocaleDateString("en-GB", { month: "short", year: "numeric" });
-            const endLabel = end ? new Date(ey, em - 1).toLocaleDateString("en-GB", { month: "short", year: "numeric" }) : "Present";
-            date.textContent = `${startLabel} - ${endLabel}`;
-            item.querySelector(".t-tenure").textContent = parts.join(" ");
+            date.textContent = `${fmt(sy, sm)} - ${end ? fmt(ey, em) : "Present"}`;
+            tenure.textContent = parts.join(" ");
         });
 
         // marquee from the skill chips
@@ -2893,7 +2922,7 @@
             [...text].forEach((ch, i) => {
                 const s = document.createElement("span");
                 s.className = "char";
-                s.textContent = ch === " " ? " " : ch;
+                s.textContent = ch === " " ? " " : ch;
                 s.style.setProperty("--i", i);
                 s.setAttribute("aria-hidden", "true");
                 s.addEventListener("mouseenter", () => {
