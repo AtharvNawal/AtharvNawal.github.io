@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atharv Nawal | Developer & ML Enthusiast</title>
-    <meta name="description" content="Atharv Nawal: CSE student at VIT Pune, former Flutter and ML intern at Interpay, open to work. Web apps, mobile apps, machine learning and GenAI projects.">
+    <meta name="description" content="Atharv Nawal: CSE student at VIT Pune, former intern at Edifice Now (Singapore) and Interpay, open to work. Web apps, mobile apps, machine learning and GenAI projects.">
     <meta name="author" content="Atharv Nawal">
     <meta property="og:title" content="Atharv Nawal | Developer & ML Enthusiast">
     <meta property="og:description" content="Web, mobile and ML projects by Atharv Nawal, CSE VIT Pune '27. Open to work.">
@@ -1403,6 +1403,33 @@
             color: var(--muted);
         }
 
+        .t-item ul li {
+            margin-bottom: 8px;
+        }
+
+        .t-item ul strong {
+            color: var(--ink-2);
+        }
+
+        .t-tags {
+            margin: 16px 0 0;
+        }
+
+        .t-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            font-weight: 600;
+            font-size: .92rem;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .t-link:hover {
+            text-decoration: underline;
+        }
+
         /* =========================================================
            PROJECTS
         ========================================================= */
@@ -2232,7 +2259,7 @@
                 <p class="hello hero-in" style="--d:.2s">Hello! I'm <span class="wave">👋</span></p>
                 <h1 class="hero-name">Atharv Nawal</h1>
                 <h2 class="hero-role hero-in" style="--d:.9s"><span id="typed-role"></span><span class="caret"></span></h2>
-                <p class="hero-sub hero-in" style="--d:1.05s">CSE student at VIT Pune ('27), previously a Flutter and ML intern at Interpay, and Sponsorship Coordinator at EPEC. I build web apps, mobile apps and ML projects, and I'm looking for my next role.</p>
+                <p class="hero-sub hero-in" style="--d:1.05s">CSE student at VIT Pune ('27). Most recently built the Singapore Armed Forces uniform app at Edifice Now (remote), after an app development internship at Interpay. Also Sponsorship Coordinator at EPEC. I build web apps, mobile apps and ML projects, and I'm looking for my next role.</p>
 
                 <div class="email-box hero-in" style="--d:1.15s">
                     <div class="email-field"><i class="fas fa-envelope"></i><span>nawalatharv@gmail.com</span></div>
@@ -2258,7 +2285,7 @@
                     <div class="photo-box"><img src="image.png" alt="Atharv Nawal"></div>
                     <div class="photo-badge badge-1">
                         <div class="b-icon"><i class="fas fa-briefcase"></i></div>
-                        <div><strong>Open to Work</strong><small>Ex-Interpay, Flutter & ML</small></div>
+                        <div><strong>Open to Work</strong><small>Ex-Edifice Now & Interpay</small></div>
                     </div>
                     <div class="photo-badge badge-2">
                         <div class="b-icon"><i class="fas fa-graduation-cap"></i></div>
@@ -2315,7 +2342,11 @@
                     </li>
                     <li data-reveal="left">
                         <span class="f-icon"><i class="fas fa-briefcase"></i></span>
-                        <div><small>Previously</small><strong>Flutter Developer & ML Intern, Interpay</strong></div>
+                        <div><small>Most recently</small><strong>Software Developer Intern, Edifice Now (Singapore, Remote)</strong></div>
+                    </li>
+                    <li data-reveal="left">
+                        <span class="f-icon"><i class="fas fa-code"></i></span>
+                        <div><small>Before that</small><strong>App Development Intern, Interpay (Remote)</strong></div>
                     </li>
                     <li data-reveal="left">
                         <span class="f-icon"><i class="fas fa-handshake"></i></span>
@@ -2331,7 +2362,7 @@
             <div class="about-text">
                 <p class="lead" data-reveal="right">Third-year CS student at VIT Pune with strong skills in C, Java, Flutter, R, the MERN stack and data analysis, experienced in NLP, embedded systems and full-stack development.</p>
                 <p data-reveal="right">My work ranges from a clinic management system built with React and Node.js, to a multilingual text summarizer on Hugging Face Transformers, to Arduino hardware like a water flow meter and a line-following robot.</p>
-                <p data-reveal="right">I enjoy turning ideas into working products. After my internship at Interpay, I'm now looking for my next opportunity in machine learning, generative AI or app development, building things people actually use.</p>
+                <p data-reveal="right">I enjoy turning ideas into working products. After internships at Edifice Now (Singapore) and Interpay, I'm now looking for my next opportunity in machine learning, generative AI or app development, building things people actually use.</p>
                 <div class="about-actions" data-reveal="right">
                     <button class="btn btn-solid" onclick="openResumeModal()">View Resume <i class="fas fa-arrow-right"></i></button>
                     <a href="resume.pdf" download class="btn btn-outline"><i class="fas fa-download"></i> Download CV</a>
@@ -2469,18 +2500,42 @@
                     data-end="" (empty) means the role is over but no end month is set yet: it shows "Jun 2025 - Completed".
                     No data-end at all means it is a current role ("Present").
                 -->
+                <div class="t-item" data-reveal="left" data-start="2026-07" data-end="2026-10">
+                    <div class="t-head">
+                        <span class="t-date">Jul 2026</span>
+                        <span class="t-tenure"></span>
+                    </div>
+                    <h3>Edifice Now</h3>
+                    <h4>Software Developer Intern · Singapore (Remote)</h4>
+                    <ul>
+                        <li>Built <strong>SAF Uniforms</strong>, a Flutter (Android + iOS) uniform reference app for the Singapore Armed Forces covering 4 services (Army, Navy, RSAF, DIS) and 5 dress codes, using Riverpod 3, go_router, Freezed and Firebase (Auth, Firestore, Cloud Functions, Storage).</li>
+                        <li>Turned the official SAF No.3 and No.4 dress rules into structured Firestore data (113-item accessory library) and a rule engine that picks the right headdress, badges and rank insignia for every service, rank, gender and Sikh option, powering an interactive wardrobe checklist and step-by-step wearing guide.</li>
+                        <li>Developed a TypeScript Cloud Function that builds a personalised 3D uniform model for each user: attaches accessories to named body points, prints the wearer's name onto the name tag, and compresses the result (Draco + WebP) for an in-app 3D viewer with AR mode.</li>
+                        <li>Created an AI uniform-compliance scanner: a Python FastAPI service on Google Cloud Run combining YOLOv8 person detection, MediaPipe pose estimation, OpenCV camera-pose solving and a YOLOv8 segmentation model trained on synthetic renders (mask mAP50 0.88), with live pose-guided capture on the phone.</li>
+                        <li>Implemented device-bound sign-in that survives app reinstalls (custom-token Firebase Auth) and an Angular 20 admin portal deployed on Firebase App Hosting.</li>
+                    </ul>
+                    <div class="p-tags t-tags">
+                        <span>Flutter</span><span>Riverpod</span><span>Firebase</span><span>TypeScript</span><span>Python</span><span>FastAPI</span><span>YOLOv8</span><span>MediaPipe</span><span>OpenCV</span><span>Cloud Run</span><span>Angular</span>
+                    </div>
+                </div>
+
                 <div class="t-item" data-reveal="left" data-start="2025-06" data-end="">
                     <div class="t-head">
                         <span class="t-date">Jun 2025</span>
                         <span class="t-tenure"></span>
                     </div>
                     <h3>Interpay</h3>
-                    <h4>Flutter Developer and ML Intern</h4>
-                    <!-- Add your Interpay bullet points here, for example:
+                    <h4>App Development Intern · Remote</h4>
                     <ul>
-                        <li>What you built</li>
-                        <li>The result it had</li>
-                    </ul> -->
+                        <li>Engineered a multilingual NLP pipeline in Python (SpeechRecognition, Whisper) to extract structured user data from speech input, enabling deployment across 5 international locales.</li>
+                        <li>Integrated speech-to-text with regex-based normalisation to standardise phone numbers to the E.164 format, improving data quality and enabling smooth cross-border onboarding.</li>
+                        <li>Designed and delivered a cross-platform solution for Windows, Android, iOS and Linux, consolidating four separate codebases into one and cutting estimated time-to-release by about 50%.</li>
+                    </ul>
+                    <div class="p-tags t-tags">
+                        <span>Flutter</span><span>Python</span><span>Whisper</span><span>SpeechRecognition</span><span>NLP</span><span>Regex</span>
+                    </div>
+                    <!-- Put your certificate link in href. While it is "#", the link stays hidden. -->
+                    <a href="#" class="t-link" target="_blank" rel="noopener"><i class="fas fa-certificate"></i> View Certificate</a>
                 </div>
 
                 <!-- Hidden entries kept from earlier versions. To show one, uncomment it.
@@ -2854,6 +2909,9 @@
             });
             p.querySelector(".p-title").after(tags);
         });
+
+        // certificate links still set to "#" are hidden
+        $$('.t-link[href="#"]').forEach(a => a.remove());
 
         // links still set to "#" turn into a "coming soon" note
         $$('.p-link[href="#"]').forEach(a => {
