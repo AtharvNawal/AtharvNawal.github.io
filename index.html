@@ -1623,7 +1623,34 @@
                 transform: none !important;
             }
         }
+
+        /* Safety net: if the script fails for any reason, show everything */
+        .failsafe [data-reveal],
+        .failsafe .chip,
+        .failsafe .hero-in,
+        .failsafe .char {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        .failsafe .section-title .w > span {
+            transform: none !important;
+        }
     </style>
+
+    <!-- When JavaScript is off or blocked (some file previewers do this), skip the loader and show the whole page -->
+    <noscript>
+        <style>
+            #preloader, .cursor, .cursor-dot, .scroll-progress, .to-top { display: none !important; }
+            body.loading { overflow: auto !important; }
+            .nav { transform: none !important; }
+            .hero-in, .char, [data-reveal], .chip, .photo-badge { opacity: 1 !important; transform: none !important; }
+            .photo-frame { opacity: 1 !important; transform: translate(24px, 24px) !important; }
+            .photo-box { clip-path: none !important; }
+            .photo-box img { transform: none !important; }
+            .section-label::before { width: 34px !important; }
+        </style>
+    </noscript>
 </head>
 
 <body class="loading">
@@ -2082,9 +2109,22 @@
     <div id="resumeModal" class="modal">
         <div class="modal-content">
             <button class="close-btn" onclick="closeResumeModal()" aria-label="Close">&times;</button>
-            <iframe src="resume.pdf"></iframe>
+            <iframe data-src="resume.pdf" title="Resume"></iframe>
         </div>
     </div>
+
+    <!-- Watchdog: runs on its own, so even if the main script below breaks,
+         the loader is removed and the page is shown after 4 seconds -->
+    <script>
+        setTimeout(function () {
+            var body = document.body;
+            if (body.classList.contains("loaded")) return;
+            var pre = document.getElementById("preloader");
+            if (pre) pre.style.display = "none";
+            body.classList.remove("loading");
+            body.classList.add("loaded", "failsafe");
+        }, 4000);
+    </script>
 
     <script>
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -2092,6 +2132,9 @@
 
         /* ---------- Resume modal ---------- */
         function openResumeModal() {
+            // the PDF only loads when someone actually opens it, so it never slows the page down
+            const frame = document.querySelector("#resumeModal iframe");
+            if (!frame.getAttribute("src")) frame.setAttribute("src", frame.dataset.src);
             document.getElementById("resumeModal").classList.add("open");
             document.body.style.overflow = "hidden";
         }
@@ -2403,12 +2446,13 @@
             document.body.classList.add("loaded");
             setTimeout(rotateRoles, 1100);
         }
-        window.addEventListener("load", () => setTimeout(start, 900));
-        setTimeout(start, 3500); // safety net if something loads slowly
+        // start as soon as the loader animation has played; no need to wait for fonts, images or the resume
+        setTimeout(start, 1300);
     </script>
 </body>
 
 </html>
+
 <!-- <!DOCTYPE html>
 <html lang="en">
 
